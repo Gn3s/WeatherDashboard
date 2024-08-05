@@ -1,6 +1,7 @@
 ﻿namespace WeatherDashboard.Services
 {
     using Newtonsoft.Json;
+    using WeatherDashboard.Database;
     using WeatherDashboard.Models;
 
     public class WeatherBackgroundService : BackgroundService
@@ -18,12 +19,12 @@
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                await FetchWeatherDataAsync();
+                await FetchWeatherData();
                 await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
             }
         }
 
-        private async Task FetchWeatherDataAsync()
+        private async Task FetchWeatherData()
         {
             using var scope = _serviceProvider.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<WeatherDbContext>();
@@ -52,22 +53,4 @@
             }
         }
     }
-
-    public class WeatherApiResponse
-    {
-        public Main Main { get; set; }
-        public Sys Sys { get; set; }
-        public string Name { get; set; }
-    }
-
-    public class Main
-    {
-        public double Temp { get; set; }
-    }
-
-    public class Sys
-    {
-        public string Country { get; set; }
-    }
-
 }

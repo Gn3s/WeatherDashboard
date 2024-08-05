@@ -1,4 +1,4 @@
-﻿namespace WeatherDashboard
+﻿namespace WeatherDashboard.Database
 {
     using Microsoft.EntityFrameworkCore;
     using WeatherDashboard.Models;

@@ -1,6 +1,7 @@
 namespace WeatherDashboard
 {
     using Microsoft.EntityFrameworkCore;
+    using WeatherDashboard.Database;
     using WeatherDashboard.Services;
 
     internal static class Program

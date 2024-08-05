@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using WeatherDashboard.Database;
 
     [ApiController]
     [Route("api/[controller]")]
